@@ -4,5 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :items # この行を追加
+  validates :name, presence: true # この行を追加
+  validates :email, presence: true, uniqueness: { case_sensitive: false } # この行を追加
+  validates :password, length: { minimum: 6 } # この行を追加
 end
