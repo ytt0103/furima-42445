@@ -1,0 +1,2 @@
+class ShippingFeePayer < ApplicationRecord
+end
