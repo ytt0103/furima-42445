@@ -72,4 +72,3 @@ end
 group :production do
   gem 'pg'
 end
-gem 'devise' # この行を追加
