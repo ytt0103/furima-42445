@@ -1,2 +1,0 @@
-class DeliveryDay < ApplicationRecord
-end
