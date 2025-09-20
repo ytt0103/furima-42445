@@ -16,8 +16,8 @@
 
 ### Association
 - has_many :items
+- has_many :orders
 
----
 
 ## Items テーブル
 
@@ -26,14 +26,13 @@
 | name              | string     | null: false                            |
 | description       | text       | null: false                            |
 | price             | integer    | null: false                            |
-| user_id           | integer    | null: false, foreign_key: true         |
-| category_id       | integer    | null: false, foreign_key: true         |
-| item_status_id    | integer    | null: false, foreign_key: true         |
-| shipping_fee_payer_id | integer | null: false, foreign_key: true         |
-| prefecture_id         | integer    | null: false, foreign_key: true         |
-| delivery_day_id   | integer    | null: false, foreign_key: true         |
-| created_at        | datetime   | null: false                            |
-| updated_at        | datetime   | null: false                            |
+| user              | references | null: false                            |
+| category_id       | integer    | null: false                            |
+| item_status_id    | integer    | null: false                            |
+| shipping_fee_payer_id | integer | null: false,                          |
+| prefecture_id         | integer | null: false                        |
+| delivery_day_id   | integer    | null: false                            |
+
 
 ### Association
 - belongs_to :user
@@ -47,10 +46,9 @@
 
 | Column     | Type     | Options                            |
 |------------|----------|------------------------------------|
-| item_id    | integer  | null: false, foreign_key: true     |
-| user_id    | integer  | null: false, foreign_key: true     |
-| created_at | datetime | null: false                        |
-| updated_at | datetime | null: false                        |
+| item       | references | null: false, foreign_key: true     |
+| user       | references | null: false, foreign_key: true     |
+
 
 ### Association
 - belongs_to :user
@@ -63,15 +61,14 @@
 
 | Column         | Type     | Options                            |
 |----------------|----------|------------------------------------|
-| order_id       | integer  | null: false, foreign_key: true     |
+| order          | references  | null: false, foreign_key: true     |
 | postal_code    | string   | null: false                        |
 | prefecture_id  | integer  | null: false                        |
 | city           | string   | null: false                        |
 | house_number   | string   | null: false                        |
 | building_name  | string   |                                    |
 | phone_number   | string   | null: false                        |
-| created_at     | datetime | null: false                        |
-| updated_at     | datetime | null: false                        |
+
 
 ### Association
 - belongs_to :order
