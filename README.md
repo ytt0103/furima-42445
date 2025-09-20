@@ -12,8 +12,7 @@
 | last_name_kana      | string   | null: false               |
 | first_name_kana     | string   | null: false               |
 | birth_date          | date     | null: false               |
-| created_at          | datetime | null: false               |
-| updated_at          | datetime | null: false               |
+
 
 ### Association
 - has_many :items
@@ -31,6 +30,7 @@
 | category_id       | integer    | null: false, foreign_key: true         |
 | item_status_id    | integer    | null: false, foreign_key: true         |
 | shipping_fee_payer_id | integer | null: false, foreign_key: true         |
+| prefecture_id         | integer    | null: false, foreign_key: true         |
 | delivery_day_id   | integer    | null: false, foreign_key: true         |
 | created_at        | datetime   | null: false                            |
 | updated_at        | datetime   | null: false                            |
@@ -43,54 +43,35 @@
 - belongs_to :delivery_day
 - has_one_attached :image
 
----
+## Orders テーブル
 
-## Categories テーブル
-
-| Column     | Type   | Options     |
-|------------|--------|-------------|
-| name       | string | null: false |
-| created_at | datetime | null: false |
-| updated_at | datetime | null: false |
-
-### Association
-- has_many :items
-
----
-
-## ItemStatuses テーブル
-
-| Column     | Type   | Options     |
-|------------|--------|-------------|
-| name       | string | null: false |
-| created_at | datetime | null: false |
-| updated_at | datetime | null: false |
+| Column     | Type     | Options                            |
+|------------|----------|------------------------------------|
+| item_id    | integer  | null: false, foreign_key: true     |
+| user_id    | integer  | null: false, foreign_key: true     |
+| created_at | datetime | null: false                        |
+| updated_at | datetime | null: false                        |
 
 ### Association
-- has_many :items
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
 ---
 
-## ShippingFeePayers テーブル
+## Addresses テーブル
 
-| Column     | Type   | Options     |
-|------------|--------|-------------|
-| name       | string | null: false |
-| created_at | datetime | null: false |
-| updated_at | datetime | null: false |
-
-### Association
-- has_many :items
-
----
-
-## DeliveryDays テーブル
-
-| Column     | Type   | Options     |
-|------------|--------|-------------|
-| name       | string | null: false |
-| created_at | datetime | null: false |
-| updated_at | datetime | null: false |
+| Column         | Type     | Options                            |
+|----------------|----------|------------------------------------|
+| order_id       | integer  | null: false, foreign_key: true     |
+| postal_code    | string   | null: false                        |
+| prefecture_id  | integer  | null: false                        |
+| city           | string   | null: false                        |
+| house_number   | string   | null: false                        |
+| building_name  | string   |                                    |
+| phone_number   | string   | null: false                        |
+| created_at     | datetime | null: false                        |
+| updated_at     | datetime | null: false                        |
 
 ### Association
-- has_many :items
+- belongs_to :order
