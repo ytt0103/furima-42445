@@ -23,9 +23,9 @@
 
 | Column            | Type       | Options                                |
 |-------------------|------------|----------------------------------------|
-| name              | string     | null: false, foreign_key: true         |
-| description       | text       | null: false, foreign_key: true         |
-| price             | integer    | null: false, foreign_key: true         |
+| name              | string     | null: false                            |
+| description       | text       | null: false                            |
+| price             | integer    | null: false                            |
 | user              | references | null: false, foreign_key: true         |
 | category_id       | integer    | null: false                            |
 | item_status_id    | integer    | null: false                            |
