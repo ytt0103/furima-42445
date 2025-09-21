@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   #has_many :items # この行を追加
 
-  validates :name, presence: true # この行を追加
+  #validates :nickname, presence: true # この行を追加
   #validates :password, # この行を追加
 end
