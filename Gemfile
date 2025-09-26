@@ -49,6 +49,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   gem 'rspec-rails' # この行を追加
   gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
