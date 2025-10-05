@@ -1,4 +1,5 @@
-const priceCalc = () => {
+// 関数名を priceCalc から priceCalculator に変更します
+const priceCalculator = () => {
   // item-priceというIDを持つ要素（販売価格の入力欄）を取得
   const priceInput = document.getElementById("item-price");
   
@@ -22,6 +23,8 @@ const priceCalc = () => {
   }
 };
 
-// ページが完全に読み込まれた後に priceCalc 関数を実行
-window.addEventListener('turbo:load', priceCalc);
-window.addEventListener('load', priceCalc); // turbo:loadに対応していないブラウザ向け
+// ページが完全に読み込まれた後（turbo:load）に priceCalculator 関数を実行
+window.addEventListener('turbo:load', priceCalculator);
+window.addEventListener("turbo:render", priceCalculator);
+//window.addEventListener('turbo:load', priceCalc);
+//window.addEventListener('load', priceCalc); // turbo:loadに対応していないブラウザ向け

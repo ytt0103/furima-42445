@@ -98,18 +98,18 @@
             <span class="indispensable">必須</span>
           </div>
           <span class="sell-yen">¥</span>
-          <%= f.text_field :price, class:"input-price", id:"item-price", placeholder:"300以上9,999,999以下", type: "number", min: "300", max: "9999999" %>
+          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"300以上9,999,999以下" %>
         </div>
         <div class="price-content">
           <span>販売手数料 (10%)</span>
           <span>
-            <span id='add-tax-price'></span>円
+            <span id='add-tax-price'>0</span>円
           </span>
         </div>
         <div class="price-content">
           <span>販売利益</span>
           <span>
-            <span id='profit'></span>円
+            <span id='profit'>0</span>円
           </span>
         </div>
       </div>
