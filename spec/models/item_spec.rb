@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
   # 💡ユーザーの意向を尊重し、元のpending行をそのまま残します。
-  pending "add some examples to (or delete) #{__FILE__}"
 
   # テスト開始前に実行される。Itemの有効なインスタンスを作成する。
   before do
