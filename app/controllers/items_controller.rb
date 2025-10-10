@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show] 
   #before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
+  #before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    #@items = Item.all
   end
 
   def new
@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    #@item = Item.find(params[:id])
   end
 
   def edit
@@ -31,32 +31,32 @@ class ItemsController < ApplicationController
   # 🚨【新機能】編集内容を更新するアクション
   def update
     # @item = Item.find(params[:id]) # 👈 set_itemメソッドに移行
-    if @item.update(item_params)
-      redirect_to item_path(@item)
+    #if @item.update(item_params)
+      #redirect_to item_path(@item)
     else
-      render :edit, status: :unprocessable_entity
+      #render :edit, status: :unprocessable_entity
     end
   end
 
   # 🚨【新機能】商品を削除するアクション
   def destroy
     # @item = Item.find(params[:id]) # 👈 set_itemメソッドに移行
-    @item.destroy
-    redirect_to root_path
+    #@item.destroy
+    #redirect_to root_path
   end
 
   private
 
    # 🚨【新機能】商品データを取得する共通メソッド
   def set_item
-    @item = Item.find(params[:id])
+    #@item = Item.find(params[:id])
   end
 
   # 🚨【新機能】出品者かどうかを確認するメソッド
   def contributor_confirmation
     # 現在ログインしているユーザーと、商品の出品者が一致しない場合、トップページにリダイレクト
-    unless current_user == @item.user
-      redirect_to root_path
+    #unless current_user == @item.user
+      #redirect_to root_path
     end
   end
 
