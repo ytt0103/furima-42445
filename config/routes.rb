@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   root 'items#index' # 追加または修正: トップページをitems#indexに設定
 
-  resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy] 
+  resources :items, only: [:index, :new, :create] 
 end
