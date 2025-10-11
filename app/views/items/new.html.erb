@@ -49,12 +49,12 @@
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-category"}) %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
         <div class="weight-bold-text">
           商品の状態
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-sales-status"}) %>
+        <%= f.collection_select(:item_status_id, ItemStatus.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
       </div>
     </div>
     <%# /商品の詳細 %>
@@ -70,17 +70,17 @@
           配送料の負担
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-shipping-fee-payer"}) %>
+        <%= f.collection_select(:shipping_fee_payer_id, ShippingFeePayer.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-payer"}) %>
         <div class="weight-bold-text">
           発送元の地域
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {},{class:"select-box", id:"item-prefecture"}) %>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
         <div class="weight-bold-text">
           発送までの日数
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {},{class:"select-box", id:"item-scheduled-delivery"}) %>
+        <%= f.collection_select(:delivery_day_id, DeliveryDay.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
       </div>
     </div>
     <%# /配送について %>
@@ -89,7 +89,7 @@
     <div class="sell-price">
       <div class="weight-bold-text question-text">
         <span>販売価格<br>(¥300〜9,999,999)</span>
-        <a class="question" href="#">?</a>
+        <a class="question" href="link_to">?</a>
       </div>
       <div>
         <div class="price-content">
@@ -98,7 +98,7 @@
             <span class="indispensable">必須</span>
           </div>
           <span class="sell-yen">¥</span>
-          <%= f.text_field :hoge, class:"price-input", id:"item-price", placeholder:"例）300" %>
+          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"300以上9,999,999以下" %>
         </div>
         <div class="price-content">
           <span>販売手数料 (10%)</span>
@@ -119,18 +119,18 @@
     <%# 注意書き %>
     <div class="caution">
       <p class="sentence">
-        <a href="#">禁止されている出品、</a>
-        <a href="#">行為</a>
+        <a href="link_to">禁止されている出品、</a>
+        <a href="link_to">行為</a>
         を必ずご確認ください。
       </p>
       <p class="sentence">
         またブランド品でシリアルナンバー等がある場合はご記載ください。
-        <a href="#">偽ブランドの販売</a>
+        <a href="link_to">偽ブランドの販売</a>
         は犯罪であり処罰される可能性があります。
       </p>
       <p class="sentence">
         また、出品をもちまして
-        <a href="#">加盟店規約</a>
+        <a href="link_to">加盟店規約</a>
         に同意したことになります。
       </p>
     </div>
@@ -146,9 +146,9 @@
 
   <footer class="items-sell-footer">
     <ul class="menu">
-      <li><a href="#">プライバシーポリシー</a></li>
-      <li><a href="#">フリマ利用規約</a></li>
-      <li><a href="#">特定商取引に関する表記</a></li>
+      <li><a href="link_to">プライバシーポリシー</a></li>
+      <li><a href="link_to">フリマ利用規約</a></li>
+      <li><a href="link_to">特定商取引に関する表記</a></li>
     </ul>
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
     <p class="inc">
