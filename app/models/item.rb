@@ -3,7 +3,7 @@ class Item < ApplicationRecord
 
   # ActiveStorageの関連付け (画像)
   has_one_attached :image 
-  #has_one :order
+  has_one :order
 
   # ActiveHashとの関連付け (選択肢)
   extend ActiveHash::Associations::ActiveRecordExtensions
