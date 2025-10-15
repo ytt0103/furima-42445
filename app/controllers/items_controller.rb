@@ -20,9 +20,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  #def show
-    #@item = Item.find(params[:id])
-  #end
+  def show
+    @item = Item.find(params[:id])
+  end
 
   #def edit
     # @item = Item.find(params[:id]) # 👈 set_itemメソッドに移行
