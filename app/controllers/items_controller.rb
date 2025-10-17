@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index] 
+  before_action :authenticate_user!, except: [:index, :show] 
   #before_action :set_item, only: [:show, :edit, :update, :destroy]
   #before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
@@ -20,9 +20,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  #def show
-    #@item = Item.find(params[:id])
-  #end
+  def show
+    @item = Item.find(params[:id])
+  end
 
   #def edit
     # @item = Item.find(params[:id]) # 👈 set_itemメソッドに移行
