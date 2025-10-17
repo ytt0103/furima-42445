@@ -25,6 +25,7 @@
       </span>
     </div>
 
+   <% if user_signed_in? %>
     <% if current_user.id == @item.user_id %><%# 出品者の場合 %>
      <%= link_to "商品の編集", "#", method: :get, class: "item-red-btn" %>
      <p class="or-text">or</p>
@@ -32,7 +33,7 @@
     <% else %>
      <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
     <% end %>
-
+   <% end %>
 
     <div class="item-explain-box">
       <span><%= @item.description %></span>
