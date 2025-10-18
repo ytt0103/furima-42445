@@ -73,4 +73,9 @@ class ItemsController < ApplicationController
       :price
     ).merge(user_id: current_user.id) # 5. ログインしているユーザーのIDを商品データに加える
   end
+  def ensure_correct_user
+    if @item.user_id != current_user.id || @item.order.present? # 他人の商品、または売却済みの商品の場合
+      redirect_to root_path
+    end
+  end
 end
