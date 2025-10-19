@@ -21,29 +21,22 @@ class ItemsController < ApplicationController
   end
 
   def show
-    #@item = Item.find(params[:id])
+    
   end
 
   def edit
-    #@item = Item.find(params[:id]) # 👈 set_itemメソッドに移行
+    
   end
 
   # 🚨【新機能】編集内容を更新するアクション
   def update
-    # @item = Item.find(params[:id]) # 👈 set_itemメソッドに移行
+    
     if @item.update(item_params)
       redirect_to item_path(@item)
     else
       render :edit, status: :unprocessable_entity
     end
   end
-
-  # 🚨【新機能】商品を削除するアクション
-  #def destroy
-    # @item = Item.find(params[:id]) # 👈 set_itemメソッドに移行
-    #@item.destroy
-    #redirect_to root_path
-  #end
 
   private
 
@@ -52,13 +45,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  # 🚨【新機能】出品者かどうかを確認するメソッド
-  def contributor_confirmation
-    # 現在ログインしているユーザーと、商品の出品者が一致しない場合、トップページにリダイレクト
-    unless current_user == @item.user
-      redirect_to root_path
-    end
-  end
 
   def item_params
     params.require(:item).permit(
