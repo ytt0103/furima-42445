@@ -17,11 +17,9 @@ const pay = () => {
   const cvcElement = elements.create('cardCvc');
 
   // HTML側のIDに合わせて、マウントする場所を修正します
-  // （id="number" → id="number-form" など）
-  numberElement.mount('#number-form'); // カード番号
-  expiryElement.mount('#expiry-form'); // 有効期限 ※月と年が一体型なので、これでOK
-  // expiryElement.mount('#exp_year'); // ← この行は不要なので削除
-  cvcElement.mount('#cvc-form'); // CVC
+  numberElement.mount('#number-form'); // 'number' から 'number-form' へ修正
+  expiryElement.mount('#expiry-form'); // 'exp_month' と 'exp_year' から 'expiry-form' へ修正
+  cvcElement.mount('#cvc-form'); // 'cvc' から 'cvc-form' へ修正
 
   // 購入ボタン（id="button"）がクリックされたときの処理
   const form = document.getElementById('charge-form'); // フォーム全体を取得
