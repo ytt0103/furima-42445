@@ -10,6 +10,7 @@ RSpec.describe OrderAddress, type: :model do
     
     context '内容に問題ない場合' do
       it 'すべての値が正しく入力されていれば保存できること' do
+        # FactoryBotでtokenが設定されているため、これでto be_validが通る
         expect(order_address).to be_valid
       end
       
@@ -29,13 +30,15 @@ RSpec.describe OrderAddress, type: :model do
       it 'user_idが空では保存できないこと' do
         order_address.user_id = nil
         order_address.valid?
-        expect(order_address.errors.full_messages).to include("User can't be blank")
+        # User Id can't be blank に変更
+        expect(order_address.errors.full_messages).to include("User Id can't be blank")
       end
 
       it 'item_idが空では保存できないこと' do
         order_address.item_id = nil
         order_address.valid?
-        expect(order_address.errors.full_messages).to include("Item can't be blank")
+        # Item Id can't be blank に変更
+        expect(order_address.errors.full_messages).to include("Item Id can't be blank")
       end
       
       it '郵便番号が空では保存できないこと' do
@@ -53,7 +56,8 @@ RSpec.describe OrderAddress, type: :model do
       it '都道府県が「---」では保存できないこと' do
         order_address.prefecture_id = 1
         order_address.valid?
-        expect(order_address.errors.full_messages).to include("Prefecture can't be blank")
+        # バリデーションがnumericality: { other_than: 1 }の場合、このメッセージになるため変更
+        expect(order_address.errors.full_messages).to include("Prefecture must be other than 1")
       end
       
       it '市区町村が空では保存できないこと' do
