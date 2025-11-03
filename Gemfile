@@ -77,3 +77,6 @@ group :production do
 end
 gem 'devise'
 gem 'active_hash'
+gem 'dotenv-rails'
+gem 'gon'
+gem 'payjp'
