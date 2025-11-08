@@ -51,16 +51,16 @@ class OrdersController < ApplicationController
   end
 
   # 決済処理を実行するメソッド
-  #def pay_item
+  def pay_item
     # 秘密鍵を設定
-    #Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     # Payjp::Charge.create で決済を実行
-    #Payjp::Charge.create(
-      #amount: @item.price,        # 商品の金額
-      #card: order_params[:token], # フォームから送られてきたカードトークン
-      #currency: 'jpy'             # 通貨単位（日本円）
-    #)
-  #end
+    Payjp::Charge.create(
+      amount: @item.price,        # 商品の金額
+      card: order_params[:token], # フォームから送られてきたカードトークン
+      currency: 'jpy'             # 通貨単位（日本円）
+    )
+  end
 
   # 購入対象の商品をデータベースから見つける
   def set_item
