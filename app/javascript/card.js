@@ -29,10 +29,6 @@ const pay = () => {
     // PAY.JPにカード情報を送信してトークンを作成
     payjp.createToken(numberElement).then(function(response) {
       if (response.error) {
-        // トークン作成失敗時
-        alert(response.error.message);
-        // 購入ボタンを再度押せるようにする
-        form.querySelector('input[type="submit"]').disabled = false;
       } else {
         // トークン作成成功時
         const token = response.id; // トークンを取得
