@@ -24,7 +24,7 @@ const pay = () => {
   // 購入ボタン（id="button"）がクリックされたときの処理
   const form = document.getElementById('charge-form'); // フォーム全体を取得
   form.addEventListener("submit", (e) => {
-    e.preventDefault(); // Railsのフォーム送信処理をいったん停止
+    
 
     // PAY.JPにカード情報を送信してトークンを作成
     payjp.createToken(numberElement).then(function(response) {
@@ -49,6 +49,7 @@ const pay = () => {
         form.submit();
       }
     });
+    e.preventDefault(); // Railsのフォーム送信処理をいったん停止
   });
 };
 
