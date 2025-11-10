@@ -36,7 +36,7 @@ const pay = () => {
         const tokenObj = `<input value=${token} name='order_address[token]' type="hidden">`;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
         // フォームにトークン情報を埋め込む
-
+      }
         // カード情報をフォームから削除する（サーバーに送信しないため）
         numberElement.clear();
         expiryElement.clear();
@@ -44,7 +44,7 @@ const pay = () => {
 
         // フォームの送信処理を再開
         form.submit();
-      }
+
     });
     e.preventDefault(); // Railsのフォーム送信処理をいったん停止
   });
