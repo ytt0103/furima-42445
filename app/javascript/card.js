@@ -24,6 +24,7 @@ const pay = () => {
 
   // 購入ボタン（id="button"）がクリックされたときの処理
   const form = document.getElementById('charge-form'); // フォーム全体を取得
+  if (!form) return; // フォームが存在しない場合は何もしない
   form.addEventListener("submit", (e) => {
     e.preventDefault(); // Railsのフォーム送信処理をいったん停止
 
