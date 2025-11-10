@@ -1,8 +1,7 @@
 // payjp.js（このファイル）を読み込む関数を定義
 const pay = () => {
   // gonを使ってコントローラーから渡された公開鍵を取得
-  const publicKey = gon.public_key;
-  if (!publicKey) return;
+  const publicKey = gon.payjp_public_key;
 
   // PAY.JPの初期化
   const payjp = Payjp(publicKey); // PAY.JPライブラリを初期化
@@ -24,7 +23,6 @@ const pay = () => {
 
   // 購入ボタン（id="button"）がクリックされたときの処理
   const form = document.getElementById('charge-form'); // フォーム全体を取得
-  if (!form) return; // フォームが存在しない場合は何もしない
   form.addEventListener("submit", (e) => {
     e.preventDefault(); // Railsのフォーム送信処理をいったん停止
 
