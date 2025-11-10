@@ -32,13 +32,10 @@ const pay = () => {
       } else {
         // トークン作成成功時
         const token = response.id; // トークンを取得
-
+        const renderDom = document.getElementById("charge-form");
+        const tokenObj = `<input value=${token} name='order_address[token]' type="hidden">`;
+        renderDom.insertAdjacentHTML("beforeend", tokenObj);
         // フォームにトークン情報を埋め込む
-        const tokenInput = document.createElement("input");
-        tokenInput.setAttribute("type", "hidden"); // 見えないようにする
-        tokenInput.setAttribute("name", "order_address[token]"); // パラメーター名を "order_address[token]" にする
-        tokenInput.setAttribute("value", token); // トークンの値を設定
-        form.appendChild(tokenInput); // フォームに追加
 
         // カード情報をフォームから削除する（サーバーに送信しないため）
         numberElement.clear();
