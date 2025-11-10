@@ -1,7 +1,8 @@
 // payjp.js（このファイル）を読み込む関数を定義
 const pay = () => {
   // gonを使ってコントローラーから渡された公開鍵を取得
-  const publicKey = gon.payjp_public_key;
+  const publicKey = gon.public_key;
+  if (!publicKey) return;
 
   // PAY.JPの初期化
   const payjp = Payjp(publicKey); // PAY.JPライブラリを初期化
